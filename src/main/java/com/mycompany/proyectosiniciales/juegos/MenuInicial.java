@@ -37,7 +37,7 @@ public class MenuInicial {
             switch (opcion) {
                 case 1:
                      System.out.println("Ejecutando opcion 1");
-                     ResolucionRifa(new int[5],new int[5]);
+                     
                     break;
                 case 2:
                      System.out.println("Ejecutando opcion 2");
