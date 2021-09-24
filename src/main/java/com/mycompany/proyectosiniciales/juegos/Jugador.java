@@ -11,13 +11,15 @@ package com.mycompany.proyectosiniciales.juegos;
  */
 public class Jugador {
     String Nombre;
-    String DNI;
     int cartera;
     int boleto[];
 
-    public Jugador(String Nombre, String DNI, int cartera, int[] boleto) {
+     public Jugador(String Nombre){
+         this.Nombre = Nombre; 
+     }
+    public Jugador(String Nombre, int cartera, int[] boleto) {
         this.Nombre = Nombre;
-        this.DNI = DNI;
+        
         this.cartera = cartera;
         this.boleto = boleto;
     }
@@ -30,13 +32,6 @@ public class Jugador {
         this.Nombre = Nombre;
     }
 
-    public String getDNI() {
-        return DNI;
-    }
-
-    public void setDNI(String DNI) {
-        this.DNI = DNI;
-    }
 
     public int getCartera() {
         return cartera;
