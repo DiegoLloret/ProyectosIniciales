@@ -7,7 +7,6 @@ package com.mycompany.proyectosiniciales.juegos;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.concurrent.ThreadLocalRandom;
 
 /**
  *
@@ -23,7 +22,7 @@ public class MenuInicial {
 
         int opcion = -1;
        
-
+        Rifa rifa= new Rifa();
         
 
         do {
@@ -41,7 +40,7 @@ public class MenuInicial {
             switch (opcion) {
                 case 1:
                      System.out.println("Ejecutando metodo rifa");
-                     Rifa();
+                     rifa.menuRifa();
                     break;
                 case 2:
                      System.out.println("Ejecutando opcion 2");
@@ -68,51 +67,8 @@ public class MenuInicial {
         } while (opcion != 0);
 
     }
-public int[] resultadoRifa(){
-     int resultado[]= new int [5];
-    for (int i = 0; i <resultado.length; i++) {
-       
-            int numeroRandom=ThreadLocalRandom.current().nextInt(0, 100 + 1);
-            System.out.println(numeroRandom);
-            resultado[i]= numeroRandom;
-        }
-    return resultado;
-}
-public static void Rifa(){
-    int opcionRifa = -1;
-    Scanner numeros = new Scanner(System.in);
-     do {
-        
-            System.out.println("Elige una opcion: ");
-            System.out.println("1. Añadir jugador");
-            System.out.println("2. boleto ganador");
-            System.out.println("3. dar premio");
-            System.out.println("0. Salir");
-            opcionRifa = numeros.nextInt();
 
-            switch (opcionRifa) {
-                case 1:
-                     System.out.println("Ejecutando metodo rifa");
-                     Jugador j1= new Jugador("Paco");
-                     j1.comprarBoleto(10);
-                     añadirJugador(j1);
-                    break;
-                case 2:
-                     System.out.println("Ejecutando opcion 2");
-                    break;
-                case 3:
-                     System.out.println("Ejecutando opcion 3");
-                    break;
-                 case 0:
-                    System.out.println("Muchas gracias por jugar.");
-                    break;
-                default:
-                    System.out.println("Opcion incorrecta, lea atentamente.");
-                    break;
-            }
-        } while (opcionRifa != 0);
 
-    }
 
 public int ResolucionRifa(int boleto[],int resultado[]){
     int acierto=0;
