@@ -22,39 +22,28 @@ public class MenuInicial {
         int opcion = -1;
        
         Rifa rifa= new Rifa();
-        
+        Aventura aventura= new Aventura();
 
         do {
             System.out.println("Elige una opcion: ");
             System.out.println("1. Rifa");
             System.out.println("2. aventura");
-            System.out.println("3. Confirmar compra");
-            System.out.println("4. Crear Usuario");
-            System.out.println("5. Dar opinion de un articulo");
-            System.out.println("6. Mostrar opiniones de un articulo");
+          
 
             System.out.println("0. Salir");
             opcion = numeros.nextInt();
 
             switch (opcion) {
                 case 1:
-                     System.out.println("Ejecutando metodo rifa");
+                     System.out.println("Ejecutando rifa");
                      rifa.menuRifa();
                     break;
                 case 2:
-                     System.out.println("Ejecutando opcion 2");
+                     System.out.println("Ejecutando Aventura");
+                     aventura.IniciarAventura();
                     break;
                 case 3:
                      System.out.println("Ejecutando opcion 3");
-                    break;
-                case 4:
-                     System.out.println("Ejecutando opcion 4");
-                    break;
-                case 5:
-                    System.out.println("Ejecutando opcion 5");
-                    break;
-                case 6:
-                     System.out.println("Ejecutando opcion 6");
                     break;
                 case 0:
                     System.out.println("Muchas gracias por su compra.");
