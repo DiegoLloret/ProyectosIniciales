@@ -11,17 +11,15 @@ package com.mycompany.proyectosiniciales.juegos;
  */
 public class Jugador {
     String Nombre;
-    int cartera;
-    int boleto[];
+      int boleto[];
+      int aciertos;
+      int premio;
 
-     public Jugador(String Nombre){
-         this.Nombre = Nombre; 
-     }
-    public Jugador(String Nombre, int cartera, int[] boleto) {
+    public Jugador(String Nombre, int[] boleto, int aciertos, int premio) {
         this.Nombre = Nombre;
-        
-        this.cartera = cartera;
         this.boleto = boleto;
+        this.aciertos = aciertos;
+        this.premio = premio;
     }
 
     public String getNombre() {
@@ -32,29 +30,29 @@ public class Jugador {
         this.Nombre = Nombre;
     }
 
-
-    public int getCartera() {
-        return cartera;
+    public int getAciertos() {
+        return aciertos;
     }
 
-    public void setCartera(int cartera) {
-        this.cartera = cartera;
+    public void setAciertos(int aciertos) {
+        this.aciertos = aciertos;
     }
 
+    public int getPremio() {
+        return premio;
+    }
+
+    public void setPremio(int premio) {
+        this.premio = premio;
+    }
+    
     public int[] getBoleto() {
         return boleto;
     }
-
+    
     public void setBoleto(int[] boleto) {
         this.boleto = boleto;
     }
     
-    public int [] comprarBoleto(int precio){
-        Rifa a;
-        if(cartera>precio){
-            a= new Rifa();
-            a.GenerarBoleto(boleto);
-        }
-        return boleto;
-    }
+    
 }

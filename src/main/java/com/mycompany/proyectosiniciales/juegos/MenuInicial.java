@@ -5,7 +5,6 @@
  */
 package com.mycompany.proyectosiniciales.juegos;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -13,9 +12,9 @@ import java.util.Scanner;
  * @author Diego
  */
 public class MenuInicial {
-    static ArrayList<Jugador> baseDeDatos;
+    
     public static void main(String[] args) {
-        baseDeDatos=new ArrayList<Jugador>();
+       
         Scanner numeros = new Scanner(System.in);
         Scanner cadenas = new Scanner(System.in);
         
@@ -70,21 +69,6 @@ public class MenuInicial {
 
 
 
-public int ResolucionRifa(int boleto[],int resultado[]){
-    int acierto=0;
-    for (int i = 0; i < boleto.length; i++) {
-        for (int j = 0; j < resultado.length; j++) {
-           if(boleto[i]==resultado[j]){
-               acierto++;
-           }
-            
-        }
-    }
-    return acierto;
-}
-public static void añadirJugador(Jugador j){
-    System.out.println("antes de añadir jugador.");
-    baseDeDatos.add(j);
-    System.out.println(j.getNombre());
-}
+
+
 }
