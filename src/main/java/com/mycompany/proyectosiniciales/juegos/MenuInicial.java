@@ -22,7 +22,7 @@ public class MenuInicial {
         int opcion = -1;
        
         Rifa rifa= new Rifa();
-        Aventura aventura= new Aventura();
+       // Aventura aventura= new Aventura();
 
         do {
             System.out.println("Elige una opcion: ");
@@ -40,13 +40,13 @@ public class MenuInicial {
                     break;
                 case 2:
                      System.out.println("Ejecutando Aventura");
-                     aventura.IniciarAventura();
+                     //aventura.IniciarAventura();
                     break;
                 case 3:
                      System.out.println("Ejecutando opcion 3");
                     break;
                 case 0:
-                    System.out.println("Muchas gracias por su compra.");
+                    System.out.println("Muchas gracias por jugar.");
                     break;
                 default:
                     System.out.println("Opcion incorrecta, lea atentamente.");

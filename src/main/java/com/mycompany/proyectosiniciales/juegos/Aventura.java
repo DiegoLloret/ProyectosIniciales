@@ -5,13 +5,11 @@
  */
 package com.mycompany.proyectosiniciales.juegos;
 
-import java.util.Scanner;
-import java.util.concurrent.ThreadLocalRandom;
-
 /**
  *
  * @author Admin
  */
+/*
 public class Aventura {
     Personaje prota= new Personaje();
     Prueba foso=new Prueba("Foso",2,3);
@@ -89,3 +87,4 @@ public class Aventura {
         }
     }
 }
+*/
