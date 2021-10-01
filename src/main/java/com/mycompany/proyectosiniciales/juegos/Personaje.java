@@ -11,7 +11,8 @@ package com.mycompany.proyectosiniciales.juegos;
  */
 public class Personaje {
     String nombre;
-    int fuerza, vida, defensa;
+    int fuerza, defensa;
+    int vida=100;
     
     
     
@@ -19,11 +20,11 @@ public class Personaje {
     public Personaje() {
     }
 
-    public Personaje(String nombre, int fuerza, int defensa, int vida) {
+    public Personaje(String nombre, int fuerza, int defensa) {
         this.nombre = nombre;
         this.fuerza = fuerza;
-      
-        this.vida= vida;
+        this.defensa= defensa;
+        
     }
     
     

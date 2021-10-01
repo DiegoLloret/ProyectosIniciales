@@ -5,26 +5,28 @@
  */
 package com.mycompany.proyectosiniciales.juegos;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Admin
  */
-/*
+
 public class Aventura {
     Personaje prota= new Personaje();
     Prueba foso=new Prueba("Foso",2,3);
-    Personaje escudero= new Personaje("Sancho",2,2,3,1,1,3,1,1,2,1);
-    Personaje consejero= new Personaje("Manolo",1,1,2,3,3,2,3,3,2,1);
-    Personaje musico= new Personaje("Mozart",1,3,2,3,3,2,1,1,2,1);
-    Personaje [] grupo= new Personaje[4];
+    Personaje boxeador1= new Personaje("Logan Paul",10,5);
+    Personaje boxeador2= new Personaje("floyd mayweather",20,10);
+    Personaje boxeador3= new Personaje("Muhammad Ali",20,15 );
+    
     public Aventura() {
     }
     public void IniciarAventura(){
         CrearProta();
-        CrearGrupo();
+        
         Introduccion();
         System.out.println(LanzarDados(5));
-        SaltarFoso();
+       // SaltarFoso();
         
     }
     public int LanzarDados(int numeroDados){
@@ -43,34 +45,15 @@ public class Aventura {
         prota.nombre=sc.nextLine();
         System.out.println(" fuerza: ");
         prota.fuerza=Integer.parseInt(sc.nextLine());
-        System.out.println(" destreza: ");
-        prota.destreza=Integer.parseInt(sc.nextLine());
-        System.out.println(" constitucion: ");
-        prota.constitucion=Integer.parseInt(sc.nextLine());
-        System.out.println(" carisma: ");
-        prota.carisma=Integer.parseInt(sc.nextLine());
-        System.out.println(" manipulacion: ");
-        prota.manipulacion=Integer.parseInt(sc.nextLine());
-        System.out.println(" compostura: ");
-        prota.compostura=Integer.parseInt(sc.nextLine());
-        System.out.println(" inteligencia: ");
-        prota.inteligencia=Integer.parseInt(sc.nextLine());
-        System.out.println(" astucia: ");
-        prota.astucia=Integer.parseInt(sc.nextLine());
-        System.out.println(" aplomo: ");
-        prota.aplomo=Integer.parseInt(sc.nextLine());
-        prota.vida=5+ prota.constitucion;
+        System.out.println(" defensa: ");
+        prota.defensa=Integer.parseInt(sc.nextLine());
+        prota.vida=100;
     }
-    public void CrearGrupo(){
-        grupo[0]=prota;
-        grupo[1]=escudero;
-        grupo[2]=consejero;
-        grupo[3]=musico;
-    }
+    
     public void Introduccion(){
-        System.out.println("\n EStas con Gandalf huyendo del Balrog cuando de repente llegais a un puente con un foso");
+        System.out.println("\n Estas apunto de tener una pelea de boxeo que podrá coronarte como el mejor boxeador de la historia");
     }
-    public void SaltarFoso(){
+   /* public void SaltarFoso(){
         int exitos=0;
         for (int i = 0; i < grupo.length; i++) {
               exitos=LanzarDados(grupo[i].fuerza+grupo[i].destreza);
@@ -85,6 +68,5 @@ public class Aventura {
             System.out.println("le quedan "+grupo[i].vida+" puntos de vida");
         }
         }
-    }
+    }*/
 }
-*/
