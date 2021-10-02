@@ -14,8 +14,8 @@ import java.util.Scanner;
  */
 public class Aventura {
 
+    int limite = 2;
     Personaje prota = new Personaje();
-    Prueba foso = new Prueba("Foso", 2, 3);
     Personaje boxeador1 = new Personaje("Logan Paul", 10, 5);
     Personaje boxeador2 = new Personaje("floyd mayweather", 20, 10);
     Personaje boxeador3 = new Personaje("Muhammad Ali", 20, 15);
@@ -33,12 +33,12 @@ public class Aventura {
         int nbox;
         CrearProta();
         AñadirBoxeador();
+        AñadirGolpe();
         PintarBoxeador(baseDeDatosBoxeadores);
         nbox = ElegirContrincante();
         Introduccion(baseDeDatosBoxeadores, nbox);
-        
+        Pelear(prota, baseDeDatosBoxeadores.get(nbox), limite);
 
-        // SaltarFoso();
     }
 
     public int LanzarDados() {
@@ -62,24 +62,11 @@ public class Aventura {
     public void Introduccion(ArrayList<Personaje> baseDeDatosBoxeadores, int nbox) {
         Personaje p = baseDeDatosBoxeadores.get(nbox);
         System.out.println("\n Estas apunto de tener una pelea de boxeo que podrá coronarte como el mejor boxeador de la historia contra " + p.getNombre());
+        System.out.println("Cuantas rondas quieres que dure el combate?");
+        Scanner sc = new Scanner(System.in);
+        limite = sc.nextInt();
     }
 
-    /* public void SaltarFoso(){
-        int exitos=0;
-        for (int i = 0; i < grupo.length; i++) {
-              exitos=LanzarDados(grupo[i].fuerza+grupo[i].destreza);
-        System.out.println(grupo[i].nombre+" Intenta saltar el foso");
-        System.out.println("exitos:"+exitos);
-        if(exitos>=foso.dificultad){
-            
-            System.out.println(prota.nombre+" salta el foso");
-        }else{
-            System.out.println(grupo[i].nombre+" se ha caido y sufre "+foso.daño);
-            grupo[i].vida-=foso.daño;
-            System.out.println("le quedan "+grupo[i].vida+" puntos de vida");
-        }
-        }
-    }*/
     public void AñadirBoxeador() {
         baseDeDatosBoxeadores.add(boxeador1);
         baseDeDatosBoxeadores.add(boxeador2);
@@ -105,10 +92,10 @@ public class Aventura {
 
     public void PintarGolpes(ArrayList<Golpe> BaseGolpes) {
         Golpe p;
-        System.out.println("Elige a tu contrincante");
+        System.out.println("Elige el golpe que quieres utilizar");
+
         for (int i = 0; i < BaseGolpes.size(); i++) {
             p = BaseGolpes.get(i);
-
             System.out.println(i + "  golpe: " + p.getNombre() + " con un daño de: " + p.getDaño() + " y una efectividad de: " + p.efectividad);
         }
     }
@@ -127,28 +114,55 @@ public class Aventura {
     public void Golpear(Personaje atacante, Personaje defensor, Golpe golpe) {
         int daño = atacante.fuerza + golpe.daño - defensor.defensa;
         if (LanzarDados() <= golpe.efectividad) {
-            System.out.println("le has dado" + daño);
-            defensor.vida -= daño;
+
+            if (daño < 1) {
+                daño = 1;
+                defensor.vida -= daño;
+                System.out.println(atacante.nombre + " ha dado " + daño + " a " + defensor.nombre);
+            } else {
+                defensor.vida -= daño;
+                System.out.println(atacante.nombre + " ha dado " + daño + " a " + defensor.nombre);
+            }
+
         } else {
-            System.out.println("El contrincante ha esquivado el golpe");
+            System.out.println(defensor.nombre + " ha esquivado el golpe de " + atacante.nombre);
         }
     }
 
-    public void Pelear(Personaje atacante, Personaje defensor) {
+    public void Pelear(Personaje atacante, Personaje defensor, int limite) {
         int ngol;
-        while (atacante.vida > 0 && defensor.vida > 0) {
-            System.out.println("Elige el golpe");
+        int ngolpes = 0;
+
+        while (atacante.vida > 0 && defensor.vida > 0 && ngolpes < limite) {
+
             ngol = ElegirGolpe();
             Golpe g = BaseGolpes.get(ngol);
             Golpear(atacante, defensor, g);
             Golpear(defensor, atacante, ElegirGolpeRandom());
-            System.out.println("vida atacante: " + atacante.vida + " vida defensor: " + defensor.vida);
+            ngolpes++;
+            System.out.println("vida de " + atacante.nombre + " " + atacante.vida + " vida de " + defensor.nombre + " " + defensor.vida);
+        }
+        if (ngolpes == limite) {
+
+            System.out.println("El combate ha terminado por tiempo y.....");
+            if (atacante.vida >= defensor.vida) {
+                System.out.println("el ganador a sido " + atacante.nombre + " con un total de puntos " + atacante.vida + " frente a los " + defensor.vida + " puntos de " + defensor.nombre + " y obtiene el titulo al mejor boxeador de la historia");
+            } else {
+                System.out.println("el ganador a sido " + defensor.nombre + " con un total de puntos " + defensor.vida + " frente a los " + atacante.vida + " puntos de " + atacante.nombre + " y obtiene el titulo al mejor boxeador de la historia");
+            }
+        } else {
+            if (atacante.vida >= defensor.vida) {
+                System.out.println("el ganador a sido " + atacante.nombre + " con una vida de " + atacante.vida + " y obtiene el titulo al mejor boxeador de la historia");
+            } else {
+                System.out.println("el ganador a sido " + defensor.nombre + " con una vida de " + defensor.vida + " y obtiene el titulo al mejor boxeador de la historia");
+            }
         }
     }
 
     public int ElegirGolpe() {
         Scanner sc = new Scanner(System.in);
         int opcion;
+        PintarGolpes(BaseGolpes);
         opcion = sc.nextInt();
         while (opcion >= BaseGolpes.size()) {
             PintarGolpes(BaseGolpes);
